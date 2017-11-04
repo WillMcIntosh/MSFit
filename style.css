@@ -1,0 +1,75 @@
+/* style so footer will stick to the bottom */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* style body element by adding background image and set to cover */
+body {
+    font-family: 'Arvo', serif;
+    background: url(images/Houston-skyline.jpeg) 
+        no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/* add font family */
+
+/* style a brand image */
+.logo {
+    height: 30px;
+}
+
+/* style nav bar using css (hover state too) */
+.navbar-inverse {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.nav li{
+    color: #fff;
+    font-size: 17px;
+    padding: 10px 0;
+    margin-right: 35px;
+}
+
+.nav li:hover {
+    border-bottom: 1px solid #F4911E;
+    /* prevent navbar from growing by one px when hovering */
+    padding-bottom: 9px;
+    cursor: pointer;
+}
+
+/* move entire page down so it's not behind the navbar */
+#pageContent {
+    margin-top: 70px;
+}
+/* title in a jumbotron (text-align) */
+.jumbotron {
+    color: white;
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+.jumbotron h1 {
+    letter-spacing: 2.5px;
+}
+
+
+/* style footer */
+.footer {
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px 0 10px 30px;
+    text-align: left;
+    font-size: 17px;
+    /* so that footer will stay on bottom of screen */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+
