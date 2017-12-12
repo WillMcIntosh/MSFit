@@ -8,7 +8,7 @@ html {
 /* style body element by adding background image and set to cover */
 body {
     font-family: 'Arvo', serif;
-    background: url(images/Houston-skyline.jpeg) 
+    background: url(images/IMG_5031.jpg) 
         no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
