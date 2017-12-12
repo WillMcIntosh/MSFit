@@ -56,7 +56,45 @@ body {
     letter-spacing: 2.5px;
 }
 
+/* Calendar styling */
+#eventCalendar {
+ text-align: center; 
+}
 
+/*
+ * .googleCalendar{
+ *   position: relative;
+ *   height: 0;
+ *   width: 100%;
+ *   padding-bottom: 50%;
+ * }
+ * 
+ * .googleCalendar iframe{
+ *   position: absolute;
+ *   top: 0;
+ *   left: 10%;
+ *   width: 75%;
+ *   height: 100%;
+ * }
+ */
+
+/*
+ * .responsiveCal {
+ *   position: relative;
+ *   padding-bottom: 75%;
+ *   height: 0;
+ *   overflow: hidden;
+ * }
+ * 
+ * .responsiveCal iframe {
+ *   display: block;
+ *   position: absolute; 
+ *   top:0; 
+ *   left: 10%; 
+ *   width: 80%; 
+ *   height: 80%;
+ * }
+ */
 /* style footer */
 .footer {
     color: rgba(255,255,255,0.5);
