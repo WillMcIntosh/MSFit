@@ -56,59 +56,23 @@ body {
     letter-spacing: 2.5px;
 }
 
-/* Calendar styling */
-#eventCalendar {
- text-align: center; 
-}
-
-/*
- * .googleCalendar{
- *   position: relative;
- *   height: 0;
- *   width: 100%;
- *   padding-bottom: 50%;
- * }
- * 
- * .googleCalendar iframe{
- *   position: absolute;
- *   top: 0;
- *   left: 10%;
- *   width: 75%;
- *   height: 100%;
- * }
- */
-
-/*
- * .responsiveCal {
- *   position: relative;
- *   padding-bottom: 75%;
- *   height: 0;
- *   overflow: hidden;
- * }
- * 
- * .responsiveCal iframe {
- *   display: block;
- *   position: absolute; 
- *   top:0; 
- *   left: 10%; 
- *   width: 80%; 
- *   height: 80%;
- * }
- */
-
 /* style footer */
 .footer {
     color: rgba(255,255,255,0.5);
     background-color: rgba(0,0,0,0.7);
-    padding: 10px 0 10px 30px;
     text-align: left;
-    font-size: 17px;
+    font-size: 1em;
     /* so that footer will stay on bottom of screen */
     position: absolute;
     left: 0;
     bottom: 0;
     overflow: hidden;
     width: 100%;
+    height: 4vh;
 }
-
+.footer p {
+    padding: 0.8em 0 0.8em 1em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
