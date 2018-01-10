@@ -1,0 +1,12 @@
+{
+    "name": "will/msfit-177522",
+    "description": "MS-FIT web page",
+    "type": "project",
+    "authors": [
+        {
+            "name": "WillMcIntosh",
+            "email": "mcintoshwilliamh@gmail.com"
+        }
+    ],
+    "require": {}
+}
