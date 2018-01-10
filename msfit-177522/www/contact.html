@@ -48,11 +48,117 @@
         <h1>Contact Us</h1>
       </div>
     </div>
+    
+    
+<?php
+// mysqli_connect ( host, username, pw, databasename)
+$link = mysqli_connect("localhost", "nicholas", "YJgdAUQ9E2eDjfMk", 
+    "members") or die("Error. Unable to connect: 
+    " . mysqli_connect_error());
 
+?>
+       
+<?php
+// define all user inputs
+$id = $_POST["ID"];
+$firstname = $_POST["firstname"];
+$lastname = $_POST["lastname"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+// error messages
+$missingFirstname = "<p><strong>Please enter your firstname</strong></p>";
+$missingLastname = "<p><strong>Please enter your lastname</strong></p>";
+$missingEmail = "<p><strong>Please enter your email</strong></p>";
+$invalidEmail = "<p><strong>Please enter a valid email</strong></p>";
+$missingPassword = "<p><strong>Please enter a password</strong></p>";
+
+// check for errors
+if($_POST["submit"]) {
+  if(!$firstname) {
+    $errors .= $missingFirstname;
+  } else {
+    $firstname = filter_var($firstname, FILTER_SANITIZE_STRING);
+  }
+
+  if(!$lastname) {
+    $errors .= $missingLastname;
+  } else {
+    $lastname = filter_var($lastname, FILTER_SANITIZE_STRING);
+  }
+
+  if(!$email) {
+    $errors .= $missingEmail;
+  } else {
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errors .= $invalidEmail;
+    }
+  }
+
+  if(!$password) {
+    $errors .= $missingPassword;
+  } 
+
+  if($errors) {
+    $resultsMessage = '<div class="alert alert-danger">' . $errors . '</div>';
+    echo $resultsMessage;
+  } else {
+    // no errors, prepare variables for query
+    $tblname = "users";
+    $firstname = mysqli_real_escape_string($link, $firstname);
+    $lastname = mysqli_real_escape_string($link, $lastname);
+    $email = mysqli_real_escape_string($link, $email);
+    $password = mysqli_real_escape_string($link, $password);
+    // change password to md5 hash
+    $password = md5($password);
+
+
+    // execute insert query
+    if(!$id) {
+      $sql = "INSERT INTO users (firstname, lastname, email, password)
+        VALUES ('$firstname', '$lastname', '$email', '$password')";
+    } else {
+      $sql = "INSERT INTO users (ID, firstname, lastname, email, password)
+        VALUES ('$id','$firstname', '$lastname', '$email', '$password')";
+    }
+    if(mysqli_query($link, $sql)) {
+      $resultsMessage = '<div class="alert alert-success">Data added!</div>';
+    } else {
+      $resultsMessage = '<div class="alert alert-warning">Error: '
+        . $sql . '. ' . mysqli_error($link). ' </div>';
+    }
+    echo $resultsMessage;
+  }
+}
+?>
+          <form method="post">
+            <div class="form-group">
+              <label for="firstname">Firstname:</label>
+              <input type="text" id="firstname" placeholder="Firstname"
+              class="form-control" name="firstname"  maxlength="20" 
+              value="<?php echo $POST["firstname"]; ?>">
+            </div>
+            <div class="form-group">
+              <label for="lastname">Lastname:</label>
+              <input type="text" id="lastname" placeholder="Lastname"
+              class="form-control" name="lastname"  maxlength="20"
+              value="<?php echo $POST["lastname"]; ?>">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" placeholder="Email" 
+              class="form-control" name="email"  maxlength="30"
+              value="<?php echo $POST["email"]; ?>">
+            </div>
+            
+            <input type="submit" name="submit" class="btn btn-success 
+            btn-lg" value="Send data">
+          </div>
     <!-- Create the footer -->
     <div class="footer">
       <div class="container-fluid">
-        <p>&copy;MS Fit 2017</p>
+        <p>&copy;MS Fit 2018</p>
       </div>
     </div>
 
