@@ -8,5 +8,7 @@
             "email": "mcintoshwilliamh@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "google/cloud-storage": "^1.3"
+    }
 }
