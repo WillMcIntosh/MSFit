@@ -49,6 +49,13 @@ class PsrLoggerTest extends SnippetTestCase
         $this->assertInstanceOf(PsrLogger::class, $res->returnVal());
     }
 
+    public function testClassBatch()
+    {
+        $snippet = $this->snippetFromClass(PsrLogger::class, 1);
+        $res = $snippet->invoke('psrLogger');
+        $this->assertInstanceOf(PsrLogger::class, $res->returnVal());
+    }
+
     public function testEmergency()
     {
         $snippet = $this->snippetFromMethod(PsrLogger::class, 'emergency');
@@ -56,6 +63,21 @@ class PsrLoggerTest extends SnippetTestCase
 
         $this->connection->writeEntries(Argument::that(function ($args) {
             if ($args['entries'][0]['severity'] !== Logger::EMERGENCY) return false;
+            return true;
+        }))->shouldBeCalled();
+
+        $this->psr->setConnection($this->connection->reveal());
+
+        $snippet->invoke();
+    }
+
+    public function testAlert()
+    {
+        $snippet = $this->snippetFromMethod(PsrLogger::class, 'alert');
+        $snippet->addLocal('psrLogger', $this->psr);
+
+        $this->connection->writeEntries(Argument::that(function ($args) {
+            if ($args['entries'][0]['severity'] !== Logger::ALERT) return false;
             return true;
         }))->shouldBeCalled();
 

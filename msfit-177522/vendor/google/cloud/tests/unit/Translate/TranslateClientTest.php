@@ -15,16 +15,17 @@
  * limitations under the License.
  */
 
-namespace Google\Cloud\Tests\Translate;
+namespace Google\Cloud\Tests\Unit\Translate;
 
 use Google\Cloud\Translate\Connection\ConnectionInterface;
 use Google\Cloud\Translate\TranslateClient;
 use Prophecy\Argument;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group translate
  */
-class TranslateClientTest extends \PHPUnit_Framework_TestCase
+class TranslateClientTest extends TestCase
 {
     private $client;
     private $connection;

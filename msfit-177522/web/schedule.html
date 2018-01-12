@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- html template from getbootstrap.com  -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+    content must come *after* these tags -->
+    <title>Schedule</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <style>
+      @media (max-width: 550px) {
+        .big-container {
+          display: none;
+        }
+      }
+      @media (min-width: 550px) {
+        .small-container {
+          display: none;
+        }
+      }
+      /* Responsive iFrame */
+      .responsive-iframe-container {
+        position: relative;
+        padding-bottom: 70vh;
+        height: 55vh;
+      }
+      .responsive-iframe-container iframe,
+      .vresponsive-iframe-container object,
+      .vresponsive-iframe-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .big-container iframe {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        width: 80vw;
+        height: 75vh;
+        padding-bottom: unset;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- create Nav bar -->
+    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><img class="logo" 
+            src="images/logo.jpeg" alt="company logo"></a>
+          <!-- type button is for assistive tech -->
+          <button type="button" class="navbar-toggle"
+            data-target="#navbarCollapse" data-toggle="collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbarCollapse" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Create header -->
+    <div class="jumbotron">
+      <div class="container" id="pageContent">
+        <h1>Schedule</h1>
+      </div>
+    </div>
+    <!-- Test Calendar -->
+    <div class="responsive-iframe-container big-container">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?showPrint=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=mcintoshwilliamh%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FNew_York"
+        style="border-width:0" width="800" height="600" frameborder="0"
+        scrolling="no" align="middle">
+      </iframe>
+    </div>
+    <div class="responsive-iframe-container small-container">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=mcintoshwilliamh%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FNew_York"
+        style="border-width:0" width="800" height="600" frameborder="0"
+        scrolling="no">
+      </iframe>
+    </div>
+    <!-- Create the footer -->
+    <div class="footer">
+      <div class="container-fluid">
+        <p>&copy;MS Fit 2018</p>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/javascript.js"></script>
+  </body>
+</html>
+
+

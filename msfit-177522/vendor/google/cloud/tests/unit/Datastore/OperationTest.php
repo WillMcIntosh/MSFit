@@ -15,20 +15,22 @@
  * limitations under the License.
  */
 
-namespace Google\Cloud\Tests\Datastore;
+namespace Google\Cloud\Tests\Unit\Datastore;
 
 use Google\Cloud\Datastore\Connection\ConnectionInterface;
 use Google\Cloud\Datastore\Entity;
+use Google\Cloud\Datastore\EntityIterator;
 use Google\Cloud\Datastore\EntityMapper;
 use Google\Cloud\Datastore\Key;
 use Google\Cloud\Datastore\Operation;
 use Google\Cloud\Datastore\Query\QueryInterface;
 use Prophecy\Argument;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group datastore
  */
-class OperationTest extends \PHPUnit_Framework_TestCase
+class OperationTest extends TestCase
 {
     private $operation;
     private $mapper;
@@ -73,7 +75,7 @@ class OperationTest extends \PHPUnit_Framework_TestCase
     public function testKeys()
     {
         $keys = $this->operation->keys('Foo');
-        $this->assertEquals(1, count($keys));
+        $this->assertCount(1, $keys);
         $this->assertInstanceOf(Key::class, $keys[0]);
     }
 
@@ -83,7 +85,7 @@ class OperationTest extends \PHPUnit_Framework_TestCase
             'number' => 10
         ]);
 
-        $this->assertEquals(10, count($keys));
+        $this->assertCount(10, $keys);
     }
 
     public function testKeysAncestors()
@@ -216,7 +218,7 @@ class OperationTest extends \PHPUnit_Framework_TestCase
 
         $res = $this->operation->lookup($keys);
 
-        $this->assertTrue(is_array($res));
+        $this->assertInternalType('array', $res);
     }
 
     public function testLookupFound()
@@ -231,7 +233,7 @@ class OperationTest extends \PHPUnit_Framework_TestCase
         $key = $this->operation->key('Kind', 'ID');
         $res = $this->operation->lookup([$key]);
 
-        $this->assertTrue(is_array($res));
+        $this->assertInternalType('array', $res);
         $this->assertTrue(isset($res['found']) && is_array($res['found']));
 
         $this->assertInstanceOf(Entity::class, $res['found'][0]);
@@ -254,7 +256,7 @@ class OperationTest extends \PHPUnit_Framework_TestCase
 
         $res = $this->operation->lookup([$key]);
 
-        $this->assertTrue(is_array($res));
+        $this->assertInternalType('array', $res);
         $this->assertTrue(isset($res['missing']) && is_array($res['missing']));
 
         $this->assertInstanceOf(Key::class, $res['missing'][0]);
@@ -274,7 +276,7 @@ class OperationTest extends \PHPUnit_Framework_TestCase
 
         $res = $this->operation->lookup([$key]);
 
-        $this->assertTrue(is_array($res));
+        $this->assertInternalType('array', $res);
         $this->assertTrue(isset($res['deferred']) && is_array($res['deferred']));
         $this->assertInstanceOf(Key::class, $res['deferred'][0]);
     }
@@ -443,10 +445,10 @@ class OperationTest extends \PHPUnit_Framework_TestCase
 
         $res = $this->operation->runQuery($q->reveal());
 
-        $this->assertInstanceOf(\Generator::class, $res);
+        $this->assertInstanceOf(EntityIterator::class, $res);
 
         $arr = iterator_to_array($res);
-        $this->assertEquals(count($arr), 2);
+        $this->assertCount(2, $arr);
         $this->assertInstanceOf(Entity::class, $arr[0]);
     }
 
@@ -471,10 +473,10 @@ class OperationTest extends \PHPUnit_Framework_TestCase
 
         $res = $this->operation->runQuery($q->reveal());
 
-        $this->assertInstanceOf(\Generator::class, $res);
+        $this->assertInstanceOf(EntityIterator::class, $res);
 
         $arr = iterator_to_array($res);
-        $this->assertEquals(count($arr), 3);
+        $this->assertCount(3, $arr);
         $this->assertInstanceOf(Entity::class, $arr[0]);
     }
 
@@ -489,13 +491,14 @@ class OperationTest extends \PHPUnit_Framework_TestCase
         $q = $this->prophesize(QueryInterface::class);
         $q->queryKey()->shouldBeCalled()->willReturn('query');
         $q->queryObject()->shouldBeCalled()->willReturn([]);
+        $q->canPaginate()->shouldBeCalled()->willReturn(false);
 
         $res = $this->operation->runQuery($q->reveal());
 
-        $this->assertInstanceOf(\Generator::class, $res);
+        $this->assertInstanceOf(EntityIterator::class, $res);
 
         $arr = iterator_to_array($res);
-        $this->assertEquals(count($arr), 0);
+        $this->assertCount(0, $arr);
     }
 
     public function testRunQueryWithReadOptionsFromTransaction()
@@ -891,6 +894,11 @@ class OperationTest extends \PHPUnit_Framework_TestCase
 
 class OperationStub extends Operation
 {
+    // public function runQuery(QueryInterface $q, array $args = [])
+    // {
+    //     echo 'test';
+    //     exit;
+    // }
     public function setConnection($connection)
     {
         $this->connection = $connection;

@@ -1,23 +1,26 @@
 [
     {
         "name": "firebase/php-jwt",
-        "version": "v4.0.0",
-        "version_normalized": "4.0.0.0",
+        "version": "v5.0.0",
+        "version_normalized": "5.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/firebase/php-jwt.git",
-            "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35"
+            "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/firebase/php-jwt/zipball/dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
-            "reference": "dccf163dc8ed7ed6a00afc06c51ee5186a428d35",
+            "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+            "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-07-18T04:51:16+00:00",
+        "require-dev": {
+            "phpunit/phpunit": " 4.8.35"
+        },
+        "time": "2017-06-27T22:17:23+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -46,22 +49,22 @@
     },
     {
         "name": "google/auth",
-        "version": "v0.11.1",
-        "version_normalized": "0.11.1.0",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/google/google-auth-library-php.git",
-            "reference": "a240674b08a09949fd5597f7590b3ed83663a12d"
+            "reference": "f3fc99fd621f339ee3d4de01bd6a709ed1396116"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/a240674b08a09949fd5597f7590b3ed83663a12d",
-            "reference": "a240674b08a09949fd5597f7590b3ed83663a12d",
+            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/f3fc99fd621f339ee3d4de01bd6a709ed1396116",
+            "reference": "f3fc99fd621f339ee3d4de01bd6a709ed1396116",
             "shasum": ""
         },
         "require": {
-            "firebase/php-jwt": "~2.0|~3.0|~4.0",
-            "guzzlehttp/guzzle": "~5.3|~6.0",
+            "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
+            "guzzlehttp/guzzle": "~5.3.1|~6.0",
             "guzzlehttp/psr7": "~1.2",
             "php": ">=5.4",
             "psr/cache": "^1.0",
@@ -69,15 +72,14 @@
         },
         "require-dev": {
             "friendsofphp/php-cs-fixer": "^1.11",
-            "phpunit/phpunit": "3.7.*"
+            "guzzlehttp/promises": "0.1.1|^1.3",
+            "phpunit/phpunit": "^4.8.36",
+            "sebastian/comparator": ">=1.2.3"
         },
-        "time": "2016-11-02T14:59:14+00:00",
+        "time": "2017-12-06T21:27:53+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
-                "src/"
-            ],
             "psr-4": {
                 "Google\\Auth\\": "src"
             }
@@ -96,47 +98,87 @@
     },
     {
         "name": "google/cloud",
-        "version": "v0.21.1",
-        "version_normalized": "0.21.1.0",
+        "version": "v0.51.0",
+        "version_normalized": "0.51.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/GoogleCloudPlatform/google-cloud-php.git",
-            "reference": "68bbbc030c256bc30f9adfab1830eb6e462a0958"
+            "reference": "563469c033d82412fc5eaa0884e55c2ee0bcfe05"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/68bbbc030c256bc30f9adfab1830eb6e462a0958",
-            "reference": "68bbbc030c256bc30f9adfab1830eb6e462a0958",
+            "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/563469c033d82412fc5eaa0884e55c2ee0bcfe05",
+            "reference": "563469c033d82412fc5eaa0884e55c2ee0bcfe05",
             "shasum": ""
         },
         "require": {
-            "google/auth": "^0.11",
+            "google/auth": "~0.9|^1.0",
+            "google/gax": "^0.29",
+            "google/proto-client": "^0.29.0",
             "guzzlehttp/guzzle": "^5.3|^6.0",
             "guzzlehttp/psr7": "^1.2",
             "monolog/monolog": "~1",
             "php": ">=5.5",
             "psr/http-message": "1.0.*",
+            "ramsey/uuid": "~3",
             "rize/uri-template": "~0.3"
+        },
+        "replace": {
+            "google/cloud-bigquery": "1.0.1",
+            "google/cloud-bigtable": "0.1.1",
+            "google/cloud-container": "0.1.1",
+            "google/cloud-core": "1.15.1",
+            "google/cloud-dataproc": "0.1.1",
+            "google/cloud-datastore": "1.2.1",
+            "google/cloud-debugger": "0.2.0",
+            "google/cloud-dlp": "0.4.3",
+            "google/cloud-error-reporting": "0.7.3",
+            "google/cloud-firestore": "0.3.4",
+            "google/cloud-language": "0.11.2",
+            "google/cloud-logging": "1.8.3",
+            "google/cloud-monitoring": "0.7.3",
+            "google/cloud-oslogin": "0.1.1",
+            "google/cloud-pubsub": "0.11.3",
+            "google/cloud-spanner": "1.0.1",
+            "google/cloud-speech": "0.10.2",
+            "google/cloud-storage": "1.3.2",
+            "google/cloud-trace": "0.5.1",
+            "google/cloud-translate": "1.1.0",
+            "google/cloud-videointelligence": "0.8.3",
+            "google/cloud-vision": "0.8.2"
         },
         "require-dev": {
             "erusev/parsedown": "^1.6",
-            "google/gax": "^0.6",
-            "google/proto-client-php": "^0.7",
-            "james-heinrich/getid3": "^1.9",
             "league/json-guard": "^0.3",
             "phpdocumentor/reflection": "^3.0",
-            "phpunit/phpunit": "4.8.*",
+            "phpseclib/phpseclib": "^2",
+            "phpunit/phpunit": "^4.8|^5.0",
             "squizlabs/php_codesniffer": "2.*",
             "symfony/console": "^3.0",
+            "symfony/lock": "3.3.x-dev#1ba6ac9",
             "vierbergenlars/php-semver": "^3.0"
         },
         "suggest": {
-            "google/gax": "Required to support gRPC",
-            "google/proto-client-php": "Required to support gRPC",
-            "james-heinrich/getid3": "Allows the Google Cloud Speech client to determine sample rate and encoding of audio inputs"
+            "google/cloud-bigquerydatatransfer": "Client library for the BigQuery Data Transfer API.",
+            "phpseclib/phpseclib": "May be used in place of OpenSSL for creating signed Cloud Storage URLs. Please require version ^2."
         },
-        "time": "2017-02-23T20:14:16+00:00",
+        "time": "2018-01-12T19:19:47+00:00",
+        "bin": [
+            "src/Core/bin/google-cloud-batch",
+            "src/Debugger/bin/google-cloud-debugger"
+        ],
         "type": "library",
+        "extra": {
+            "component": {
+                "id": "google-cloud",
+                "target": "git@github.com:jdpedrie-gcp/google-cloud-php.git",
+                "path": "src",
+                "entry": [
+                    "Version.php",
+                    "ServiceBuilder.php"
+                ]
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
@@ -162,6 +204,7 @@
         "keywords": [
             "big query",
             "bigquery",
+            "bigtable",
             "cloud",
             "datastore",
             "gcs",
@@ -172,15 +215,244 @@
             "google apis client",
             "google cloud",
             "google cloud platform",
+            "language",
             "natural language",
             "pub sub",
             "pubsub",
+            "spanner",
             "speech",
             "stackdriver logging",
             "storage",
             "translate",
             "translation",
             "vision"
+        ]
+    },
+    {
+        "name": "google/cloud-tools",
+        "version": "v0.6.8",
+        "version_normalized": "0.6.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/GoogleCloudPlatform/php-tools.git",
+            "reference": "cebb2588ce42a253f20380eac5708b867571708d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/GoogleCloudPlatform/php-tools/zipball/cebb2588ce42a253f20380eac5708b867571708d",
+            "reference": "cebb2588ce42a253f20380eac5708b867571708d",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "~5.3|~6.0",
+            "php": ">=5.5",
+            "symfony/browser-kit": "~2|~3",
+            "symfony/console": "~2|~3",
+            "symfony/filesystem": "~2|~3",
+            "symfony/process": "~2|~3",
+            "twig/twig": "~1.3|~2.0"
+        },
+        "time": "2018-01-08T23:34:16+00:00",
+        "bin": [
+            "src/Utils/Flex/flex_exec"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Cloud\\TestUtils\\": "src/TestUtils/",
+                "Google\\Cloud\\Utils\\": "src/Utils/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Takashi Matsuo",
+                "email": "tmatsuo@google.com",
+                "homepage": "https://wp.gaeflex.ninja/"
+            }
+        ],
+        "description": "PHP tools for Google Cloud Platform",
+        "homepage": "https://github.com/GoogleCloudPlatform/php-tools",
+        "keywords": [
+            "appengine",
+            "gcp",
+            "test"
+        ]
+    },
+    {
+        "name": "google/gax",
+        "version": "0.29.0",
+        "version_normalized": "0.29.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/googleapis/gax-php.git",
+            "reference": "eb4787747f6c90cbe760a31801ef224ccf3a9b36"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/googleapis/gax-php/zipball/eb4787747f6c90cbe760a31801ef224ccf3a9b36",
+            "reference": "eb4787747f6c90cbe760a31801ef224ccf3a9b36",
+            "shasum": ""
+        },
+        "require": {
+            "google/auth": "~0.9|^1.0",
+            "google/protobuf": "^3.5.1",
+            "grpc/grpc": "^1.4",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36",
+            "squizlabs/php_codesniffer": "2.*"
+        },
+        "time": "2017-12-28T17:31:08+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\": "src",
+                "GPBMetadata\\Google\\": "metadata"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "Google API Core for PHP",
+        "homepage": "https://github.com/googleapis/gax-php",
+        "keywords": [
+            "google"
+        ]
+    },
+    {
+        "name": "google/proto-client",
+        "version": "0.29.0",
+        "version_normalized": "0.29.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/googleapis/proto-client-php.git",
+            "reference": "47e52e5819426edff97c2831efe022b0141c44f1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/googleapis/proto-client-php/zipball/47e52e5819426edff97c2831efe022b0141c44f1",
+            "reference": "47e52e5819426edff97c2831efe022b0141c44f1",
+            "shasum": ""
+        },
+        "require": {
+            "google/protobuf": "^3.4",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "google/gax": ">=0.25.0",
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2017-12-21T21:59:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\": "src/Google/",
+                "GPBMetadata\\": "src/GPBMetadata/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "Generated proto and gRPC classes for Google Cloud Platform in PHP",
+        "homepage": "https://github.com/googleapis/proto-client-php",
+        "keywords": [
+            "google"
+        ]
+    },
+    {
+        "name": "google/protobuf",
+        "version": "v3.5.1.1",
+        "version_normalized": "3.5.1.1",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/google/protobuf.git",
+            "reference": "860bd12fec5c69e6529565165532b3d5108a7d97"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/google/protobuf/zipball/860bd12fec5c69e6529565165532b3d5108a7d97",
+            "reference": "860bd12fec5c69e6529565165532b3d5108a7d97",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": ">=4.8.0"
+        },
+        "suggest": {
+            "ext-bcmath": "Need to support JSON deserialization"
+        },
+        "time": "2018-01-05T21:42:10+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Protobuf\\": "php/src/Google/Protobuf",
+                "GPBMetadata\\Google\\Protobuf\\": "php/src/GPBMetadata/Google/Protobuf"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "proto library for PHP",
+        "homepage": "https://developers.google.com/protocol-buffers/",
+        "keywords": [
+            "proto"
+        ]
+    },
+    {
+        "name": "grpc/grpc",
+        "version": "1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/grpc/grpc-php.git",
+            "reference": "8d190d91ddb9d980f685d9caf79bca62d7edc1e6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/grpc/grpc-php/zipball/8d190d91ddb9d980f685d9caf79bca62d7edc1e6",
+            "reference": "8d190d91ddb9d980f685d9caf79bca62d7edc1e6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "google/auth": "v0.9"
+        },
+        "suggest": {
+            "ext-protobuf": "For better performance, install the protobuf C extension.",
+            "google/protobuf": "To get started using grpc quickly, install the native protobuf library."
+        },
+        "time": "2017-09-11T20:50:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Grpc\\": "src/lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "gRPC library for PHP",
+        "homepage": "https://grpc.io",
+        "keywords": [
+            "rpc"
         ]
     },
     {
@@ -451,6 +723,56 @@
         ]
     },
     {
+        "name": "paragonie/random_compat",
+        "version": "v2.0.11",
+        "version_normalized": "2.0.11.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
+            "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2017-09-27T21:40:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/random.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "pseudorandom",
+            "random"
+        ]
+    },
+    {
         "name": "psr/cache",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -600,6 +922,90 @@
         ]
     },
     {
+        "name": "ramsey/uuid",
+        "version": "3.7.1",
+        "version_normalized": "3.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ramsey/uuid.git",
+            "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ramsey/uuid/zipball/45cffe822057a09e05f7bd09ec5fb88eeecd2334",
+            "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334",
+            "shasum": ""
+        },
+        "require": {
+            "paragonie/random_compat": "^1.0|^2.0",
+            "php": "^5.4 || ^7.0"
+        },
+        "replace": {
+            "rhumsaa/uuid": "self.version"
+        },
+        "require-dev": {
+            "apigen/apigen": "^4.1",
+            "codeception/aspect-mock": "^1.0 | ^2.0",
+            "doctrine/annotations": "~1.2.0",
+            "goaop/framework": "1.0.0-alpha.2 | ^1.0 | ^2.1",
+            "ircmaxell/random-lib": "^1.1",
+            "jakub-onderka/php-parallel-lint": "^0.9.0",
+            "mockery/mockery": "^0.9.4",
+            "moontoast/math": "^1.1",
+            "php-mock/php-mock-phpunit": "^0.3|^1.1",
+            "phpunit/phpunit": "^4.7|>=5.0 <5.4",
+            "satooshi/php-coveralls": "^0.6.1",
+            "squizlabs/php_codesniffer": "^2.3"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
+            "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
+            "ircmaxell/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+            "moontoast/math": "Provides support for converting UUID to 128-bit integer (in string form).",
+            "ramsey/uuid-console": "A console application for generating UUIDs with ramsey/uuid",
+            "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+        },
+        "time": "2017-09-22T20:46:04+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ramsey\\Uuid\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Marijn Huizendveld",
+                "email": "marijn.huizendveld@gmail.com"
+            },
+            {
+                "name": "Thibaud Fabre",
+                "email": "thibaud@aztech.io"
+            },
+            {
+                "name": "Ben Ramsey",
+                "email": "ben@benramsey.com",
+                "homepage": "https://benramsey.com"
+            }
+        ],
+        "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+        "homepage": "https://github.com/ramsey/uuid",
+        "keywords": [
+            "guid",
+            "identifier",
+            "uuid"
+        ]
+    },
+    {
         "name": "rize/uri-template",
         "version": "0.3.2",
         "version_normalized": "0.3.2.0",
@@ -643,6 +1049,483 @@
             "RFC 6570",
             "template",
             "uri"
+        ]
+    },
+    {
+        "name": "symfony/browser-kit",
+        "version": "v3.4.3",
+        "version_normalized": "3.4.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/browser-kit.git",
+            "reference": "490f27762705c8489bd042fe3e9377a191dba9b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/browser-kit/zipball/490f27762705c8489bd042fe3e9377a191dba9b4",
+            "reference": "490f27762705c8489bd042fe3e9377a191dba9b4",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/dom-crawler": "~2.8|~3.0|~4.0"
+        },
+        "require-dev": {
+            "symfony/css-selector": "~2.8|~3.0|~4.0",
+            "symfony/process": "~2.8|~3.0|~4.0"
+        },
+        "suggest": {
+            "symfony/process": ""
+        },
+        "time": "2018-01-03T07:37:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\BrowserKit\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony BrowserKit Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/console",
+        "version": "v3.4.3",
+        "version_normalized": "3.4.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/console.git",
+            "reference": "8394c8ef121949e8f858f13bc1e34f05169e4e7d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/console/zipball/8394c8ef121949e8f858f13bc1e34f05169e4e7d",
+            "reference": "8394c8ef121949e8f858f13bc1e34f05169e4e7d",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/debug": "~2.8|~3.0|~4.0",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "conflict": {
+            "symfony/dependency-injection": "<3.4",
+            "symfony/process": "<3.3"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "~3.3|~4.0",
+            "symfony/dependency-injection": "~3.4|~4.0",
+            "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
+            "symfony/lock": "~3.4|~4.0",
+            "symfony/process": "~3.3|~4.0"
+        },
+        "suggest": {
+            "psr/log": "For using the console logger",
+            "symfony/event-dispatcher": "",
+            "symfony/lock": "",
+            "symfony/process": ""
+        },
+        "time": "2018-01-03T07:37:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Console\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Console Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/debug",
+        "version": "v4.0.3",
+        "version_normalized": "4.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/debug.git",
+            "reference": "9ae4223a661b56a9abdce144de4886cca37f198f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/debug/zipball/9ae4223a661b56a9abdce144de4886cca37f198f",
+            "reference": "9ae4223a661b56a9abdce144de4886cca37f198f",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "psr/log": "~1.0"
+        },
+        "conflict": {
+            "symfony/http-kernel": "<3.4"
+        },
+        "require-dev": {
+            "symfony/http-kernel": "~3.4|~4.0"
+        },
+        "time": "2018-01-03T17:15:19+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Debug\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Debug Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/dom-crawler",
+        "version": "v4.0.3",
+        "version_normalized": "4.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/dom-crawler.git",
+            "reference": "39b785e1cf28e9f21bb601a5d62c4992a8e8a290"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/39b785e1cf28e9f21bb601a5d62c4992a8e8a290",
+            "reference": "39b785e1cf28e9f21bb601a5d62c4992a8e8a290",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "require-dev": {
+            "symfony/css-selector": "~3.4|~4.0"
+        },
+        "suggest": {
+            "symfony/css-selector": ""
+        },
+        "time": "2018-01-03T07:38:00+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\DomCrawler\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony DomCrawler Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v3.4.3",
+        "version_normalized": "3.4.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/filesystem.git",
+            "reference": "e078773ad6354af38169faf31c21df0f18ace03d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/filesystem/zipball/e078773ad6354af38169faf31c21df0f18ace03d",
+            "reference": "e078773ad6354af38169faf31c21df0f18ace03d",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "time": "2018-01-03T07:37:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Filesystem\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Filesystem Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "v1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+            "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2017-10-11T12:05:26+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/process",
+        "version": "v3.4.3",
+        "version_normalized": "3.4.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/process.git",
+            "reference": "ff69f110c6b33fd33cd2089ba97d6112f44ef0ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/process/zipball/ff69f110c6b33fd33cd2089ba97d6112f44ef0ba",
+            "reference": "ff69f110c6b33fd33cd2089ba97d6112f44ef0ba",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "time": "2018-01-03T07:37:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Process\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Process Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "twig/twig",
+        "version": "v2.4.4",
+        "version_normalized": "2.4.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twigphp/Twig.git",
+            "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/eddb97148ad779f27e670e1e3f19fb323aedafeb",
+            "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "require-dev": {
+            "psr/container": "^1.0",
+            "symfony/debug": "~2.7",
+            "symfony/phpunit-bridge": "~3.3@dev"
+        },
+        "time": "2017-09-27T18:10:31+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            },
+            "psr-4": {
+                "Twig\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com",
+                "role": "Project Founder"
+            },
+            {
+                "name": "Twig Team",
+                "homepage": "http://twig.sensiolabs.org/contributors",
+                "role": "Contributors"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
         ]
     }
 ]
