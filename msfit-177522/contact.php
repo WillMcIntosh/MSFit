@@ -53,14 +53,10 @@
 <?php
 
 $secrets = parse_ini_file(realpath(__DIR__ . "/private/secrets.ini"));
+$link = mysqli_connect('localhost', $secrets[username], $secrets[pw], 
+    $secrets[databasename]) or die("Error! Unable to connect: 
+    " . mysqli_connect_error());
 
-// mysqli_connect ( host, username, pw, databasename)
-// $link = mysqli_connect($secrets[host], $secrets[username], $secrets[pw], 
-//     $secrets[databasename], $secrets[port], $secrets[socket]) or die("Error! Unable to connect: 
-//     " . mysqli_connect_error());
-
-$link = PDO($secrets[MYSQL_DSN], $secrets[MYSQL_USER], $secrets[MYSQL_PASSWORD]) or die("Error! Unable to connect:
-    " . PDO::errorInfo());
 ?>
        
 <?php
