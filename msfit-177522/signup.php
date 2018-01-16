@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.html"><img class="logo" 
-            src="images/logo.jpeg" alt="company logo"></a>
+            src="images/logo.png" alt="company logo"></a>
           <!-- type button is for assistive tech -->
           <button type="button" class="navbar-toggle"
             data-target="#navbarCollapse" data-toggle="collapse">
@@ -50,7 +50,7 @@
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-offset-1 col-sm-10 signupForm">
+        <div class="col-md-offset-3 col-md-6 signupForm">
 
 <?php
 $secrets = parse_ini_file(realpath(__DIR__ . "/private/secrets.ini"));
@@ -111,7 +111,9 @@ if($_POST["submit"]) {
       VALUES ('$firstname', '$lastname', '$email')";
 
     if(mysqli_query($link, $sql)) {
-      $resultsMessage = '<div class="alert alert-success">Data added!</div>';
+        $resultsMessage = '<div class="alert alert-success"><p>Email added!</p>
+            <p>You will receive a confirmation email in the future when the
+            newsletter goes live to complete the sign up process.</p></div>';
     } else {
       $resultsMessage = '<div class="alert alert-warning">
         <p>Uh oh! Something went wrong. Please try again.</p>

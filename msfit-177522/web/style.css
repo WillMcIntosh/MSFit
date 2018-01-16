@@ -8,16 +8,15 @@ html {
 /* style body element by adding background image and set to cover */
 body {
   font-family: 'Arvo', serif;
-  background: url(images/IMG_5031.jpg) 
-  no-repeat center center;
+  background: url(images/IMG_5037_smaller.png) no-repeat center center black;
   background-attachment: fixed;
   background-size: cover;
 }
-/* add font family */
 
 /* style a brand image */
 .logo {
   height: 30px;
+  margin-top: 3%;
 }
 
 /* style nav bar using css (hover state too) */
@@ -43,9 +42,13 @@ body {
 #pageContent {
   margin-top: 6.5vh;
 }
+
+#pageContent p {
+  margin-top: 4vh;
+}
 /* title in a jumbotron (text-align) */
 .jumbotron {
-  color: white;
+  color: #FFF;
   background-color: rgba(0,0,0,0);
   text-align: center;
   margin: 0;
@@ -56,6 +59,35 @@ body {
   letter-spacing: 2.5px;
 }
 
+.row {
+  margin-top: 5%;
+}
+.profilePic {
+  height: 300px;
+}
+/* social media buttons */
+#socialMedia {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    text-align: center;
+}
+
+#socialMedia p {
+    font-size: 22px;
+    padding-bottom: 3%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.fa {
+    font-size: 50px;
+    height: 80px;
+    width: 80px;
+}
+
+.btn-fb {
+  color: #4267B2;
+}
 /* style footer */
 .footer {
   color: rgba(255,255,255,0.5);
