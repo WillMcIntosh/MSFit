@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- html template from getbootstrap.com  -->
+  <!-- html template from getbootstrap.com  -->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,17 +48,18 @@
         <h1>Sign up for our Newsletter!</h1>
       </div>
     </div>
-    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-offset-1 col-sm-10 signupForm">
 
 <?php
 $secrets = parse_ini_file(realpath(__DIR__ . "/private/secrets.ini"));
-$link = mysqli_connect('localhost', $secrets[username], $secrets[pw], 
-    $secrets[databasename]) or die("Error! Unable to connect. Please try
-    again later");
 
-    // " . mysqli_connect_error());
+$link = mysqli_connect('localhost', $secrets[username], $secrets[pw],
+    $secrets[databasename]) or die("Error! Unable to connect. Please
+    try again later");
 ?>
-       
+
 <?php
 // define all user inputs
 $firstname = $_POST["firstname"];
@@ -106,58 +107,70 @@ if($_POST["submit"]) {
 
 
     // execute insert query
-      $sql = "INSERT INTO $tblname (firstname, lastname, email)
-        VALUES ('$firstname', '$lastname', '$email')";
+    $sql = "INSERT INTO $tblname (firstname, lastname, email)
+      VALUES ('$firstname', '$lastname', '$email')";
 
     if(mysqli_query($link, $sql)) {
       $resultsMessage = '<div class="alert alert-success">Data added!</div>';
     } else {
-        $resultsMessage = '<div class="alert alert-warning">
-            <p>Uh oh! Something went wrong. Please try again.</p>
-            <p>If this problem persists, please let Nick know and we\'ll look into it.</p>
-            </div>'
-        // . $sql . '. ' . mysqli_error($link). ' </div>';
+      $resultsMessage = '<div class="alert alert-warning">
+        <p>Uh oh! Something went wrong. Please try again.</p>
+        <p>If this problem persists, please let Nick know and well look into it.</p>
+        </div>';
+      // . $sql . '. ' . mysqli_error($link). ' </div>';
     }
     echo $resultsMessage;
   }
 }
 ?>
-          <form action="contact.php" method="post">
-            <div class="form-group">
+
+        <form action="signup.php" method="post" id="signupForm">
+          <div class="form-group row">
+            <div class="col-md-offset-3 col-md-6">
               <label for="firstname">Firstname:</label>
               <input type="text" id="firstname" placeholder="Firstname"
               class="form-control" name="firstname"  maxlength="20" 
               value="<?php echo $POST["firstname"]; ?>">
             </div>
-            <div class="form-group">
+          </div>
+          <div class="form-group row">
+            <div class="col-md-offset-3 col-md-6">
               <label for="lastname">Lastname:</label>
               <input type="text" id="lastname" placeholder="Lastname"
               class="form-control" name="lastname"  maxlength="20"
               value="<?php echo $POST["lastname"]; ?>">
             </div>
-            <div class="form-group">
+          </div>
+          <div class="form-group row">
+            <div class="col-md-offset-3 col-md-6">
               <label for="email">Email:</label>
               <input type="email" id="email" placeholder="Email" 
               class="form-control" name="email"  maxlength="30"
               value="<?php echo $POST["email"]; ?>">
             </div>
-            
-            <input type="submit" name="submit" class="btn btn-success 
-            btn-lg" value="Send data">
           </div>
-    <!-- Create the footer -->
-    <div class="footer">
-      <div class="container-fluid">
-        <p>&copy;MS Fit 2018</p>
+          <div class="col-md-offset-3 col-md-6 text-center">
+            <input type="submit" name="submit" class="btn btn-success 
+                btn-lg" value="Sign Up">
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/javascript.js"></script>
-  </body>
+  <!-- Create the footer -->
+  <div class="footer">
+    <div class="container-fluid">
+      <p>&copy;MS Fit 2018</p>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/javascript.js"></script>
+</body>
 </html>
 
 

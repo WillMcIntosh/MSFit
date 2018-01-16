@@ -80,3 +80,13 @@ body {
     display: none;
   }
 }
+
+/* move input form down */
+#signupForm {
+  margin-top: 5%;
+  color: #FFF;
+}
+
+#signupForm .btn {
+  margin-top: 2%;
+}
