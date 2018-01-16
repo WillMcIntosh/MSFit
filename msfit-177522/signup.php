@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head 
     content must come *after* these tags -->
-    <title>Contact Us</title>
+    <title>Newsletter Sign Up</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,9 +34,9 @@
         <div id="navbarCollapse" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li><a href="signup.html">Newsletter</a></li>
           </ul>
         </div>
       </div>
@@ -45,18 +45,18 @@
     <!-- Create header -->
     <div class="jumbotron">
       <div class="container" id="pageContent">
-        <h1>Contact Us</h1>
+        <h1>Sign up for our Newsletter!</h1>
       </div>
     </div>
     
 
 <?php
-
 $secrets = parse_ini_file(realpath(__DIR__ . "/private/secrets.ini"));
 $link = mysqli_connect('localhost', $secrets[username], $secrets[pw], 
-    $secrets[databasename]) or die("Error! Unable to connect: 
-    " . mysqli_connect_error());
+    $secrets[databasename]) or die("Error! Unable to connect. Please try
+    again later");
 
+    // " . mysqli_connect_error());
 ?>
        
 <?php
@@ -112,14 +112,17 @@ if($_POST["submit"]) {
     if(mysqli_query($link, $sql)) {
       $resultsMessage = '<div class="alert alert-success">Data added!</div>';
     } else {
-      $resultsMessage = '<div class="alert alert-warning">Error: '
-        . $sql . '. ' . mysqli_error($link). ' </div>';
+        $resultsMessage = '<div class="alert alert-warning">
+            <p>Uh oh! Something went wrong. Please try again.</p>
+            <p>If this problem persists, please let Nick know and we\'ll look into it.</p>
+            </div>'
+        // . $sql . '. ' . mysqli_error($link). ' </div>';
     }
     echo $resultsMessage;
   }
 }
 ?>
-          <form action ="contact.php" method="post">
+          <form action="contact.php" method="post">
             <div class="form-group">
               <label for="firstname">Firstname:</label>
               <input type="text" id="firstname" placeholder="Firstname"
