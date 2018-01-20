@@ -35,7 +35,7 @@
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
             <li><a href="signup.html">Newsletter</a></li>
           </ul>
         </div>
